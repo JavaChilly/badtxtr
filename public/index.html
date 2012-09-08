@@ -21,11 +21,13 @@
 				<h1>Bad TXTr</h1>
 				<a href="#about" id="infoButton" class="button slide">About</a>
 			</div>
-			<div class="scroll" style="margin-top: 0; padding-top: 0">
+			<div class="scroll" style="margin-top: 0; padding-top: 0; position: relative">
 				<div class="map">
 					<div id="map_canvas"></div>
+					
 				</div>
 				<a href="#report" id="goReport" class="flip redButton">Report Someone</a>
+				<div id="info_panel" style="display: none"></div>
 			</div>
 		</div>
 		<div id="report">
@@ -34,7 +36,9 @@
 				<h1>Bad TXTr</h1>
 			</div>
 			<div class="scroll editor">
-				<form id="reportForm" enctype="multipart/form-data" action="http://localhost:3000/report/" method="POST">
+				<form id="reportForm" enctype="multipart/form-data" action="/node/report/" method="POST">
+					<input type="hidden" name="lat" id="latField">
+					<input type="hidden" name="lon" id="lonField">
 					<div>
 						<label for="who">Who Did It?</label><br>
 						<ul class="edit rounded"><li><input type="text" placeholder="CA 4OMG778" name="who"></li></ul>
@@ -83,6 +87,18 @@
 				<div class="info">
 					<p style="text-align: left; margin-bottom: 20px">Name & Shame your friends and family (or perfect strangers) when you catch them texting inappropriately. Never Text & Drive yourself, It Can Wait.</p>
 					<p style="font-size: 14pt">Created by <a href="https://twitter.com/intent/user?screen_name=JavaChilly">@javachilly</a></p>
+				</div>
+			</div>
+		</div>
+		<div id="success">
+			<div class="toolbar">
+				<a href="#home" class="back">Back</a>
+				<h1>Bad TXTr</h1>
+			</div>
+			<div class="scroll">
+				<div class="info">
+					<p style="font-size: 14pt">Thanks for Shaming them!</p>
+					<p style="text-align: left; margin-bottom: 20px">Remember, don't Text & Drive, <i>It Can Wait!</i></p>
 				</div>
 			</div>
 		</div>
