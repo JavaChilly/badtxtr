@@ -1,0 +1,53 @@
+html { height: 100% }
+body { 
+	height: 100%;
+	margin: 0;
+	padding: 0; 
+    background-color: #ddd; 
+    color: #222;
+    font-family: Helvetica; 
+    font-size: 14px;
+}
+
+#main_menu { width: 100%; height: 100% }
+#map_canvas { width: 100%; height: 100% }
+
+DIV.scroll {
+	margin-top: 10px;
+}
+
+DIV.scroll A {
+	margin-bottom: 10px;
+}
+
+DIV.nav_button {
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    text-shadow: rgba(0,0,0,0.6) 0px -1px 0px;
+    line-height: 28px;
+    border-width: 0 8px 0 8px;
+    -webkit-border-image: url(images/button.png) 0 8 0 8;
+}
+
+#location_menu {
+	display: none;
+}
+#report_menu {
+	display: none;
+}
+#report_menu DIV {
+	float: left;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#report_menu INPUT {
+	width: 100%;
+	line-height: 25px;
+	height: 25px;
+}
