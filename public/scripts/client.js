@@ -11,14 +11,6 @@ var jQT = new $.jQTouch({
 
 $(document).ready(function() {
 
-	/*
-    $('#goReport').on('tap', function() {
-		$('#home').removeClass('current');
-		$('#report').addClass('current');
-	});
-	*/
-	
-
 	var noLocation = function() {
 		$('#location_menu').show();
 		$('#main_menu').hide();
@@ -27,7 +19,7 @@ $(document).ready(function() {
 	
 	$('#reportButton').on('click', function() {
 		console.log("this working?");
-		$('#reportForm').submit();
+		$('#reportForm').get()[0].submit();
 	});
 
 	if (navigator.geolocation) {  
