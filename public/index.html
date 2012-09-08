@@ -19,44 +19,72 @@
 		<div id="home" class="current">
 			<div class="toolbar">
 				<h1>Bad TXTr</h1>
+				<a href="#about" id="infoButton" class="button slide">About</a>
 			</div>
-			<div class="scroll">
-				<a href="#map" id="goMap" class="flip whiteButton">Show Map</a>
-				<br>
-				<a href="#report" id="goReport" class="flip redButton">Report A TXTr</a>
-				<div class="info">
-					Snap a pic of someone texting while driving, name them and post it on our map. Shame the friends risking your life, the soccer mom checking her email, or the guy walking across the street oblivious to everything while he updates Facebook.
+			<div class="scroll" style="margin-top: 0; padding-top: 0">
+				<div class="map">
+					<div id="map_canvas"></div>
 				</div>
+				<a href="#report" id="goReport" class="flip redButton">Report Someone</a>
 			</div>
 		</div>
 		<div id="report">
-			<form action="/node/report" enctype="multipart/form-data" method="POST">
-			<div>
-				<label for="who">Who Did It?</label><br>
-				<input placeholder="CA 4OMG778" name="who">
-			</div>
-			<div>
-				<label for="what">What'd They Do?</label><br>
-				<input placeholder="Texting While Stupid!" name="what">
-			</div>
-			<div>
-				<label for="pic">Snapped a Pic?</label><br>
-				<input type="file" name="pic">
-			</div>
-			<div>
-				<input type="submit" name="submit" value="Report!">
-			</div>
-			</form>
-		</div>
-		<div id="location_menu">
-			<label for="loc">Where Ya At?</label>
-			<input placeholder="i.e. 5th & Wilshire, 90405" name="loc">
-		</div>
-		<div id="main_menu">
 			<div class="toolbar">
-				<div id="report_button">Report a TXTr</div>
+				<a href="#home" class="back">Back</a>
+				<h1>Bad TXTr</h1>
 			</div>
-			<div id="map_canvas"></div>
+			<div class="scroll editor">
+				<form id="reportForm" action="/node/report/" enctype="multipart/form-data" method="POST">
+					<div>
+						<label for="who">Who Did It?</label><br>
+						<ul class="edit rounded"><li><input type="text" placeholder="CA 4OMG778" name="who"></li></ul>
+					</div>
+					<div>
+						<label for="what">What'd They Do?</label><br>
+						<ul class="edit rounded"><li><input type="text" placeholder="Texting While Stupid!" name="what"></li></ul>
+					</div>
+					<div>
+						<label for="pic">Snapped a Pic?</label><br>
+						<ul class="edit rounded"><li><input type="file" name="pic"></li></ul>
+					</div>
+					<div>
+						<a href="#reportSubmit" id="reportButton" class="flip greenButton">Report'm!</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="location">
+			<div class="toolbar">
+				<h1>Bad TXTr</h1>
+			</div>
+			<div class="scroll editor">
+				<form>
+					<div>
+						<label for="street">Nearest Cross Street</label><br>
+						<ul class="edit rounded"><li><input placeholder="5th & Wilshire" name="street"></li><ul>
+					</div>
+					<div>
+						<label for="zip">Zip Code</label><br>
+						<ul class="edit rounded"><li><input placeholder="90405" name="zip"></li><ul>
+					</div>
+					<div>
+						<a href="#submitLoc" class="flip greenbutton">Show Me</a>
+					</div>
+					<div class="info">Enable Location Services to avoid this screen.</div>
+				</form>
+			</div>
+		</div>
+		<div id="about">
+			<div class="toolbar">
+				<a href="#home" class="back">Back</a>
+				<h1>Bad TXTr</h1>
+			</div>
+			<div class="scroll">
+				<div class="info">
+					<p style="text-align: left; margin-bottom: 20px">Name & Shame your friends and family (or perfect strangers) when you catch them texting inappropriately. Never Text & Drive yourself, It Can Wait.</p>
+					<p style="font-size: 14pt">Created by <a href="https://twitter.com/intent/user?screen_name=JavaChilly">@javachilly</a></p>
+				</div>
+			</div>
 		</div>
 	</div>
   </body>

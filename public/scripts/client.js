@@ -25,10 +25,9 @@ $(document).ready(function() {
 		// @TODO write hooks for this ...
 	};
 	
-	$('#report_button').on('click', function() {
-		$('#report_menu').show();
-		$('#map_canvas').hide();
-		$('DIV.toolbar').append('<div class="nav_button">Back</div>');
+	$('#reportButton').on('click', function() {
+		console.log("this working?");
+		$('#reportForm').submit();
 	});
 
 	if (navigator.geolocation) {  
