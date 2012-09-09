@@ -14,6 +14,7 @@ var loc = {
 	lon: null
 }
 
+var scoutToken = 'qnqy70HkuppbRZzi05Rfazq_6GYHtS-GrepXnIvhgk-mm6tZUJu7Fl3etPzlUiZaBw4gn02X7UUyqGNfolgAUblQ1rrhAbVE-iaQAXJX-MyP63uzxoZMWsi50-fxTdxcvrJAOtSy2sSFNNiI8amkkTA3SeiBf8gnFUPu9AjxbZ4';
 var reports = [];
 var markers = [];
 var map = null;
@@ -30,7 +31,8 @@ function showReports() {
 function showReport() {
 	var report = reports[increment];
 	increment++;
-	var html = '';
+	var html = '<div class="scout"><a href=http://apps.scout.me/v1/driveto?dt=' + report.loc[0] + ',' + report.loc[1] + '&token=' + scoutToken + '">';
+	html += '<img src="/images/scout.png" title="Scout this Location Now"></a></div>';
 	if (report.image != null) {
 		html += '<img src="/uploads/' + report.image.thumb + '">';
 	}

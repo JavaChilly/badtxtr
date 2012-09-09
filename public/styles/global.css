@@ -26,6 +26,10 @@ DIV.map {
 	box-shadow: rgba(0, 0, 0, 0.4) 0 1px 3px, rgba(0, 0, 0, 0.4) 0 0 0 5px, rgba(255, 255, 255, 0.3) 0 1px 0 5px;
 }
 
+DIV.scout {
+	float: right;
+}
+
 DIV#info_panel {
 	z-index: 10000;
 	position: absolute;
