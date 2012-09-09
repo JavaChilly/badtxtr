@@ -31,7 +31,7 @@ function showReports() {
 function showReport() {
 	var report = reports[increment];
 	increment++;
-	var html = '<div class="scout"><a href=http://apps.scout.me/v1/driveto?dt=' + report.loc[0] + ',' + report.loc[1] + '&token=' + scoutToken + '">';
+	var html = '<div class="scout"><a href="http://apps.scout.me/v1/driveto?dt=' + encodeURI(report.loc[0] + ',' + report.loc[1]) + '&token=' + encodeURI(scoutToken) + '">';
 	html += '<img src="/images/scout.png" title="Scout this Location Now"></a></div>';
 	if (report.image != null) {
 		html += '<img src="/uploads/' + report.image.thumb + '">';
@@ -69,13 +69,18 @@ $(document).ready(function() {
 		$('#reportForm').get()[0].submit();
 	});
 	
-	$('#info_panel').on('click', function() {
+	$('#info_panel').on('click', function(e) {
 		if (panelUp) {
 			$('#info_panel').hide();
 		} else {
 			$('#info_panel').show();
 		}
 		panelUp = !panelUp;
+		
+		if (e.srcElement.parentElement.href) {
+			window.location = e.srcElement.parentElement.href;
+		}
+		console.log(e);
 	});
 
 	if (navigator.geolocation) {  
