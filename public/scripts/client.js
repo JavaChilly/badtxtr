@@ -20,6 +20,7 @@ var markers = [];
 var map = null;
 var increment = 0;
 var panelUp = false;
+
 function showReports() {
   for (var i = 0; i < reports.length; i++) {
 	setTimeout(function() {
@@ -56,6 +57,28 @@ function showReport() {
   	});
 }
 
+function clearOverlays() {
+  if (markers) {
+    for (var i = 0; i < markers.length; i++ ) {
+      markers[i].setMap(null);
+    }
+  }
+}
+
+function updateMap() {
+	clearOverlays();
+	increment = 0;
+	if (window.location.hash != 'report') {
+		$.getJSON('/node/fetch/?lat=' + loc.lat + '&lon=' + loc.lon, function(data) {
+			if (data.status == 'ok') {
+				// populate our global reports array
+				reports = data.results;
+				showReports();
+			}
+		});
+	}
+}
+
 $(document).ready(function() {
 
 	var noLocation = function() {
@@ -67,6 +90,10 @@ $(document).ready(function() {
 	
 	$('#reportButton').on('click', function() {
 		$('#reportForm').get()[0].submit();
+	});
+	
+	$('#updateButton').on('click', function() {
+		updateMap();
 	});
 	
 	$('#info_panel').on('click', function(e) {
@@ -98,18 +125,14 @@ $(document).ready(function() {
 	        };
 	        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 			
-			if (window.location.hash != 'report') {
-				$.getJSON('/node/fetch/?lat=' + loc.lat + '&lon=' + loc.lon, function(data) {
-					if (data.status == 'ok') {
-						// populate our global reports array
-						reports = data.results;
-						showReports();
-					}
-				});
-			}
+			updateMap();
 		}, noLocation);  
 	} else {
 		noLocation();
 	}
-
+	
+	$('#home').bind('pageAnimationEnd', function(e, info){
+		console.log(e);
+		console.log(info);
+	});
 });
